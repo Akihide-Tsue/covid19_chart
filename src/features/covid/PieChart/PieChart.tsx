@@ -8,7 +8,7 @@ import { selectDaily } from "../covidSlice";
 const PieChart: React.FC = () => {
   const daily = useSelector(selectDaily);
 
-  const motality =
+  const mortality =
     (100 * daily[daily.length - 1].Deaths) / daily[daily.length - 1].Confirmed;
 
   const pieChart = daily[0] && (
@@ -46,7 +46,7 @@ const PieChart: React.FC = () => {
   return (
     <>
       <Typography align="center" color="textSecondary" gutterBottom>
-        Motarity {motality.toFixed(2)} [%]
+        Mortality {mortality.toFixed(2)} [%]
       </Typography>
       {pieChart}
     </>

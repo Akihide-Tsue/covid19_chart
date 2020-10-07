@@ -1,13 +1,7 @@
 import React, { useEffect } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Container,
-  Grid,
-} from "@material-ui/core";
+import { AppBar, Toolbar, Typography, Container, Grid, } from "@material-ui/core";
 import styles from "./DashBoard.module.css";
 
 import { useSelector } from "react-redux";

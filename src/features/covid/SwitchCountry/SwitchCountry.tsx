@@ -16,24 +16,8 @@ const SwitchCountry: React.FC = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  //TODO:地域（アジア、北米など）で分けた場合も作成
-  const countries = [
-    "japan",
-    "us",
-    "brazil",
-    "china",
-    "france",
-    "germany",
-    "india",
-    "italy",
-    "new zealand",
-    "russia",
-    "spain",
-    "sweden",
-    "taiwan",
-    "thailand",
-    "united kingdom",
-  ];
+  //TODO:全世界、地域（アジア、北米など）で分けた場合も作成
+  const countries = [ "japan", "us", "brazil", "china", "france", "germany", "india", "italy", "new zealand", "russia", "spain", "sweden", "taiwan", "thailand", "united kingdom", ];
   const style = { marginBottom: "15px" };
 
   return (
