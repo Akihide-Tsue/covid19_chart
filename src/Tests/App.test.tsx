@@ -15,11 +15,13 @@ describe("rendering component", () => {
     // デバッグ確認方法 screen.debug();
     // TODO:Jestの機能一覧：https://jestjs.io/docs/ja/expect
 
-    //ヘッダーの文字が正しく存在すること
+    //Cards:存在すること
+    expect(screen.getByText("Infected persons")).toBeTruthy();
+    //DashBoard:ヘッダーの文字が正しく存在すること
     expect(screen.getByText("Covid 19 Live Dashboard")).toBeTruthy();
-    //"Covid 18 Live Dashboard"の文字が存在しないこと
+    //DashBoard:"Covid 18 Live Dashboard"の文字が存在しないこと
     expect(screen.queryByText("Covid 18 Live Dashboard")).toBeNull();
-    // 国のプルダウンselectが存在すること
+    // SwitchCountry:国のプルダウンselectが存在すること
     expect(screen.getByRole("combobox")).toBeTruthy();
   });
 });

@@ -20,6 +20,7 @@ export const fetchAsyncGetDaily = createAsyncThunk(
   "covid/getDaily",
   async (country: string) => {
     const { data } = await axios.get<DATADAILY>(`${apiUrl}/${country}`);
+    console.log("selected country name", country);
     return { data: data, country: country };
   }
 );

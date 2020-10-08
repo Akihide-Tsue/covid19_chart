@@ -22,16 +22,16 @@ describe("rendering", () => {
   });
 });
 
-////プルダウンを選択したときのテスト
+//プルダウンを選択したときのテスト
 describe("Country pulldown onChange event", () => {
-  it("select country name = us", () => {
+  it("selected country name = us", () => {
     render(
       <Provider store={store}>
         <SwitchCountry />
       </Provider>
     );
     //selectの場合：https://testing-library.com/docs/dom-testing-library/api-queries#byrole
-    //プルダウンで us を選択する
+    //プルダウンで us を選択できること
     const pullDown = screen.getByRole("combobox");
     userEvent.click(pullDown);
     userEvent.selectOptions(pullDown, "us");

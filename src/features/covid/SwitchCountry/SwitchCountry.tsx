@@ -24,7 +24,8 @@ const SwitchCountry: React.FC = () => {
     <FormControl className={classes.formControl}>
       <div>13:00-15:00頃にAPIのメンテナンス中の場合は利用できないことがあります。</div>
       <div style={style}>
-        API : <a href="https://documenter.getpostman.com/view/10808728/SzS8rjbc">
+        API :{" "}
+        <a href="https://documenter.getpostman.com/view/10808728/SzS8rjbc">
           https://documenter.getpostman.com/view/10808728/SzS8rjbc
         </a>
       </div>
