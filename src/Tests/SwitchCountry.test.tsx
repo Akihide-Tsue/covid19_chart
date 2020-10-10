@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { render, screen, cleanup } from "@testing-library/react";
+import { render, screen, cleanup, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import { store } from "../app/store";
 import SwitchCountry from "../features/covid/SwitchCountry/SwitchCountry";
+import { NativeSelect } from "@material-ui/core";
 
 afterEach(() => cleanup()); //テスト後のレンダリングを解除
 
@@ -24,17 +25,27 @@ describe("rendering", () => {
 
 //プルダウンを選択したときのテスト
 describe("Country pulldown onChange event", () => {
-  it("selected country name = us", () => {
-    render(
-      <Provider store={store}>
-        <SwitchCountry />
-      </Provider>
-    );
+  it("selected country name equal selected one", () => {
     //selectの場合：https://testing-library.com/docs/dom-testing-library/api-queries#byrole
-    //プルダウンで us を選択できること
-    const pullDown = screen.getByRole("combobox");
-    userEvent.click(pullDown);
-    userEvent.selectOptions(pullDown, "us");
-    expect(pullDown.value).toBe("us");
+    //プルダウンで選択できること
+    const mockCallback = jest.fn();
+    const { getByTestId } = render(
+        <NativeSelect native={true} onChange={mockCallback} data-testid="my-wrapper" defaultValue="japan">
+          <option key={0} value="japan">
+            japan
+          </option>
+          <option key={1} value="us">
+            us
+          </option>
+          <option key={2} value="brazil">
+            brazil
+          </option>
+        </NativeSelect>
+    );
+    const wrapperNode = getByTestId("my-wrapper");
+    console.log(wrapperNode);//TODO:中身見れない
+    // const selectNode = wrapperNode.childNodes[0].childNodes[0];
+    // fireEvent.change(selectNode, { target: { value: "brazil" } });
+    // expect(mockCallback.mock.calls).toHaveLength(1);
   });
 });
